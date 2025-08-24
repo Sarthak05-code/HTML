@@ -1,53 +1,54 @@
 #include <stdio.h>
 
-int binarysearch(int array[], int n, int target)
+void display(int array[10][10], int rows, int cols)
 {
-    int mid, l, r;
-    l = 0;
-    r = n - 1;
-    while (l <= r)
+    for (int i = 0; i < rows; ++i)
     {
-        mid = (l + r) / 2;
+        for (int j = 0; j < cols; ++j)
+        {
+            printf("%d \t", array[i][j]);
+        }
+        printf("\n");
+    }
+}
 
-        if (array[mid] == target)
+void transpose(int array[10][10], int trans[10][10], int rows, int cols)
+{
+    for (int i = 0; i < rows; ++i)
+    {
+        for (int j = 0; j < cols; ++j)
         {
-            return mid;
-        }
-        else if (array[mid] > target)
-        {
-            r = mid - 1;
-        }
-        else
-        {
-            l = mid + 1;
+            trans[j][i] = array[i][j]; // put row into column
         }
     }
-    return -1;
 }
 
 int main()
 {
-    int array[100];
-    int i, n;
-    printf("Enter N: ");
-    scanf("%d", &n);
+    int array[10][10], trans[10][10];
+    int rows, cols;
 
-    for (i = 0; i < n; ++i)
-    {
-        printf("a[%d] = ", i);
-        scanf("%d", &array[i]);
-    }
-    int target;
-    printf("Enter the number: ");
-    scanf("%d", &target);
+    printf("Enter rows and columns: ");
+    scanf("%d %d", &rows, &cols);
 
-    int index = binarysearch(array, n, target);
-    if (index != -1)
+    // input
+    for (int i = 0; i < rows; ++i)
     {
-        printf("The index is %d", index);
+        for (int j = 0; j < cols; ++j)
+        {
+            printf("a[%d][%d] = ", i, j);
+            scanf("%d", &array[i][j]);
+        }
     }
-    else
-        printf("The index wasnt found!");
+
+    printf("Original Matrix:\n");
+    display(array, rows, cols);
+
+    // transpose
+    transpose(array, trans, rows, cols);
+
+    printf("Transpose of the Matrix:\n");
+    display(trans, cols, rows); // note: rows and cols are swapped here
 
     return 0;
 }
