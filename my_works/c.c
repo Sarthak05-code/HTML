@@ -12,7 +12,20 @@ void display(int array[10][10], int rows, int cols)
     }
 }
 
-void transpose(int array[10][10], int trans[10][10], int rows, int cols)
+void transposeSquare(int array[10][10], int n)
+{
+    for (int i = 0; i < n; ++i)
+    {
+        for (int j = i + 1; j < n; ++j) // only upper triangle
+        {
+            int temp = array[i][j];
+            array[i][j] = array[j][i];
+            array[j][i] = temp;
+        }
+    }
+}
+
+void transposeRectangular(int array[10][10], int trans[10][10], int rows, int cols)
 {
     for (int i = 0; i < rows; ++i)
     {
@@ -41,14 +54,21 @@ int main()
         }
     }
 
-    printf("Original Matrix:\n");
+    printf("\nOriginal Matrix:\n");
     display(array, rows, cols);
 
-    // transpose
-    transpose(array, trans, rows, cols);
-
-    printf("Transpose of the Matrix:\n");
-    display(trans, cols, rows); // note: rows and cols are swapped here
+    if (rows == cols) // square matrix
+    {
+        transposeSquare(array, rows);
+        printf("\nTranspose of Square Matrix:\n");
+        display(array, rows, cols);
+    }
+    else // rectangular matrix
+    {
+        transposeRectangular(array, trans, rows, cols);
+        printf("\nTranspose of Rectangular Matrix:\n");
+        display(trans, cols, rows); // rows and cols swapped
+    }
 
     return 0;
 }
