@@ -1,83 +1,51 @@
 #include <stdio.h>
 
-#define maxsubjects 5
-
-typedef struct
+int main()
 {
-    char name[50];
-    char id[50];
-    int age;
-    float grades[maxsubjects];
-} records;
+    FILE *fptr, *transfer;
+    int i, count = 0;
 
-int main(void)
-{
-    int n;
-    printf("Enter the number of students: ");
-    scanf("%d", &n);
-
-    records class[n];
-
-    // Define subject names
-    char subjects[maxsubjects][50] = {"Math-2", "C-program", "Micro-Processor", "Eng-2", "Accounting"};
-
-    // Input student info and grades
-    for (int i = 0; i < n; ++i)
+    // Step 1: write numbers 1–100 to example.dat
+    fptr = fopen("example.dat", "w");
+    if (!fptr)
     {
-        printf("\n--- Student %d ---\n", i + 1);
+        printf("Error opening example.dat for writing.\n");
+        return 1;
+    }
+    for (i = 1; i <= 100; i++)
+    {
+        fprintf(fptr, "%d\t", i);
+    }
+    fclose(fptr);
 
-        printf("Enter name: ");
-        scanf("%49s", class[i].name);
+    // Step 2: read from example.dat and write evens to even.dat
+    fptr = fopen("example.dat", "r");
+    transfer = fopen("even.dat", "w");
+    if (!fptr || !transfer)
+    {
+        printf("Error opening file.\n");
+        if (fptr)
+            fclose(fptr);
+        if (transfer)
+            fclose(transfer);
+        return 1;
+    }
 
-        printf("Enter ID: ");
-        scanf("%49s", class[i].id);
-
-        printf("Enter age: ");
-        scanf("%d", &class[i].age);
-
-        // Input grades
-        for (int j = 0; j < maxsubjects; ++j)
+    while (fscanf(fptr, "%d", &i) == 1)
+    {
+        if (i % 2 == 0)
         {
-            printf("Enter grade for %s in %s: ", class[i].name, subjects[j]);
-            scanf("%f", &class[i].grades[j]);
-
-            // Punish overflow grades
-            if (class[i].grades[j] > 100)
-            {
-                class[i].grades[j] -= 100;
-                printf("Oops, grade adjusted to %.2f \n", class[i].grades[j]);
-            }
+            fprintf(transfer, "%d\t", i);
+            count++;
         }
     }
 
-    // Display all students with their grades and highlight failures
-    printf("\n\n--- Student Records ---\n");
-    for (int i = 0; i < n; ++i)
-    {
-        printf("\nStudent %d: %s | ID: %s | Age: %d\n", i + 1, class[i].name, class[i].id, class[i].age);
+    fclose(fptr);
+    fclose(transfer);
 
-        int failed = 0; // flag for failure
-        for (int j = 0; j < maxsubjects; ++j)
-        {
-            printf("%s: %.2f", subjects[j], class[i].grades[j]);
-            if (class[i].grades[j] < 40) // assuming 40 is passing mark
-            {
-                printf("  <-- FAILED");
-                failed = 1;
-            }
-            printf("\n");
-        }
+    // Step 3: report count (no need to reopen even.dat)
+    printf("There are %d values in file even.dat\n", count);
+    printf("Even numbers copied successfully.\n");
 
-        if (failed)
-        {
-            printf("Notice: %s has failed in one or more subjects!\n", class[i].name);
-        }
-        else
-        {
-            printf("%s passed all subjects.\n", class[i].name);
-        }
-    }
-
-    printf("\nEnded\n");
     return 0;
 }
