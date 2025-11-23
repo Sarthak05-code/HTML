@@ -18,7 +18,7 @@ void push()
         top++;
         printf("Enter any number: ");
         scanf("%d", &num);
-        printf("Number %d has been added to stack: ", num);
+        printf("Number %d has been added to stack: \n\n", num);
         stack[top] = num;
     }
 }
@@ -46,7 +46,7 @@ void display_all()
     {
         for (int i = top; i >= 0; --i) // assuming top > -1.
         {
-            printf("%d \t", stack[i]);
+            printf("%d\t->", stack[i]);
         }
         printf("\n");
     }
