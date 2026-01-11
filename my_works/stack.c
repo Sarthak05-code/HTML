@@ -1,32 +1,31 @@
-#include <stdio.h>
+#include <stdio.h>  
+#include<string.h>
 
-int main(void)
-{
-    int array[100]; // Declaring an array that store upto a hundred number.
+
+
+int main(void) {
+    char name[100];
+
+    printf("Enter a word: ");
+    fgets(name , sizeof(name) , stdin);
+
     int i = 0;
-    while (1) // while true will make sure the loop runs nonstop
+
+    int size = 0;
+
+
+    for (size_t i = 0; name[i] != '\0'; i++)
     {
-        if (i >= 100)
-        {
-            printf("Overflowed array , exiting the program.");
-            break;
-        }
-        printf("Enter a number: ");
-        scanf("%d", &array[i]);
-        if (array[i] < 0) // check if negative number.
-        {
-            printf("Negative number scanned , terminating the program. ");
-            break;
-        }
-
-        i++; // move the index
+        size++;
     }
+    size  = size - 1;
 
-    printf("The number is reverse order: \n");
-    for(int j = i -1 ; j >= 0 ; --j) // last incremented number of i
+    int n = 0;
+
+    while (n < size)
     {
-        printf("%d\t", array[j]);
+        
     }
-
+    
     return 0;
 }
