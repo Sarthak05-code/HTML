@@ -3,88 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
     <link rel="stylesheet" href="style.css">
-    <title>Student Attendance System</title>
 </head>
 <body>
-
-<div class="container">
-
-    <h1>Student Attendance System</h1>
-
-    <section>
-        <h2>Attendance Record</h2>
-
-        <table>
-            <tr>
-                <th>ID</th>
-                <th>Name</th>
-                <th>Roll No</th>
-                <th>Course</th>
-                <th>Attendance</th>
-            </tr>
-
-            <tr>
-                <td>6-2-456-132-2024</td>
-                <td>Sarthak</td>
-                <td>28</td>
-                <td>BCA</td>
-                <td class="present">Present</td>
-            </tr>
-
-            <tr>
-                <td>6-2-456-131-2024</td>
-                <td>Saroj</td>
-                <td>29</td>
-                <td>BCA</td>
-                <td class="present">Present</td>
-            </tr>
-
-            <tr>
-                <td>6-2-456-135-2024</td>
-                <td>Suyog</td>
-                <td>32</td>
-                <td>BCA</td>
-                <td class="absent">Absent</td>
-            </tr>
-        </table>
-    </section>
-
-    <section>
-        <h2>Mark Attendance</h2>
-
-        <form>
-            <label for="sid">Student ID</label>
-            <input type="text" id="sid" name="id" placeholder="6-2-456-xxx-2024" required>
-
-            <label for="sname">Student Name</label>
-            <input type="text" id="sname" name="name" required>
-
-            <label for="roll">Roll No</label>
-            <input type="number" id="roll" name="roll" min="1" max="31" required>
-
-            <label for="course">Course</label>
-            <select id="course" name="course" required>
-                <option value="">-- Select Course --</option>
-                <option>BCA</option>
-                <option>BBA</option>
-                <option>CSIT</option>
-            </select>
-
-            <label for="date">Date</label>
-            <input type="date" id="date" name="date" required>
-
-            <label>Attendance</label>
-            <div class="radio-group">
-                <input type="radio" name="attendance" value="Present" required> Present
-                <input type="radio" name="attendance" value="Absent"> Absent
-            </div>
-
-            <input type="submit" value="Submit Attendance">
-        </form>
-    </section>
-
-</div>
-
+    
+<script src="script.js"></script>
 </body>
 </html>

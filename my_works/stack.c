@@ -1,31 +1,26 @@
-#include <stdio.h>  
-#include<string.h>
+#include <stdio.h>
+#include <string.h>
 
+int main(void){
+    char binary[32];
+    int num = 0;
+    int lenght;
+    printf("Enter a binary: ");
+    scanf("%s",binary);
+    lenght = strlen(binary);
 
+    for(int i = 0 ; i < lenght ; ++i){
+        if(binary[i] != '0' && binary[i] != '1'){
+            printf("Invalid Entry");
+            return 1;
 
-int main(void) {
-    char name[100];
+        }
 
-    printf("Enter a word: ");
-    fgets(name , sizeof(name) , stdin);
+        int bit = binary[i] - '0';
 
-    int i = 0;
-
-    int size = 0;
-
-
-    for (size_t i = 0; name[i] != '\0'; i++)
-    {
-        size++;
+        num = num * 2 + bit;
     }
-    size  = size - 1;
 
-    int n = 0;
-
-    while (n < size)
-    {
-        
-    }
-    
+    printf("The number is: %d" , num);
     return 0;
 }
