@@ -1,26 +1,24 @@
 #include <stdio.h>
-#include <string.h>
+#include "types.h"
+
 
 int main(void){
-    char binary[32];
-    int num = 0;
-    int lenght;
-    printf("Enter a binary: ");
-    scanf("%s",binary);
-    lenght = strlen(binary);
+    u32 a;
+    b32 b;
+    printf("Enter a: ");
+    scanf("%u",&a);
+    printf("%u", a);
 
-    for(int i = 0 ; i < lenght ; ++i){
-        if(binary[i] != '0' && binary[i] != '1'){
-            printf("Invalid Entry");
-            return 1;
+     b = isEven(a);
+    printf("\n%d", b);
 
-        }
+    printf("\nEnter a number for factorial: ");
+    u32 c;
+    scanf("%d", &c);
 
-        int bit = binary[i] - '0';
+    printf("The factorial of %d is %u", c , factorial(c));
 
-        num = num * 2 + bit;
-    }
+    
 
-    printf("The number is: %d" , num);
     return 0;
 }
