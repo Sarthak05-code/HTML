@@ -5,6 +5,7 @@ public class Tester {
     public static void main(String[] args) throws InterruptedException {
 
         int totalBlocks = 10;
+        // hello
         Scanner sc = new Scanner(System.in);
 
         System.out.println("Answer a question:");
