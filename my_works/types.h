@@ -3,6 +3,7 @@
 typedef unsigned int u32;
 typedef int b32;
 typedef float f32;
+typedef signed int s32;
 
 #include <stdio.h>
 #include <stdint.h>
