@@ -1,6 +1,10 @@
 *.log
 *.class
 *.json
+*.pdb
+*.exe
+*.lock
+*.toml
 target/
 node_module/
 .env

@@ -1,36 +1,52 @@
-#ifndef TYPES_DATA_TYPES
-#define TYPES_DATA_TYPES
+#ifndef TYPES_H
+#define TYPES_H
+
+#include <stdbool.h>
+
+// ===== Basic Types =====
 typedef unsigned int u32;
-typedef int b32;
+typedef int s32;
 typedef float f32;
-typedef signed int s32;
+typedef bool b32;
 
-#include <stdio.h>
-#include <stdint.h>
-#include <fcntl.h>
-#include <unistd.h>
-#include <ctype.h>
+// ===== Utility Functions =====
 
-static inline b32 isEven(int n)
+// Check even number
+static inline b32 isEven(s32 n)
 {
     return (n % 2 == 0);
 }
 
+// Factorial
 static inline u32 factorial(u32 n)
 {
     u32 result = 1;
-    for (u32 i = 1; i <= n; ++i)
+    for (u32 i = 1; i <= n; i++)
     {
         result *= i;
     }
     return result;
 }
-static inline u32 arrayPrinter(const u32 *array, u32 n)
+
+// Print array
+static inline void arrayPrinter(const u32 *array, u32 n)
 {
-    for (size_t i = 0; i < n; i++)
+    for (u32 i = 0; i < n; i++)
     {
-        printf("%u\t", *(array + i));
+        printf("%u\t", array[i]);
     }
+    printf("\n");
 }
+
+typedef struct
+{
+    int x;
+    int y;
+} Vec2;
+
+typedef struct
+{
+    int x, y, z;
+} Vec3;
 
 #endif
