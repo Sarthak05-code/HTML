@@ -40,13 +40,13 @@ static inline void arrayPrinter(const u32 *array, u32 n)
 
 typedef struct
 {
-    int x;
-    int y;
+    double x;
+    double y;
 } Vec2;
 
 typedef struct
 {
-    int x, y, z;
+    double x, y, z;
 } Vec3;
 
 #endif

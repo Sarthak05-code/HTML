@@ -1,28 +1,49 @@
 #include <stdio.h>
-#include <time.h>
-#include <stdlib.h>
+#include <math.h>
 
-#define final const
-#define sysclear "\033[H\033[2J"
+#define e 0.00001
 
-typedef struct
-{
-    int critValue[10];
-} storage;
+double function(double x) {
+    return (pow(x, 4) - x - 10);
+}
 
-int main()
-{
-    printf(sysclear);
+double function_derivative(double x) {
+    return (4 * pow(x, 3) - 1);
+}
 
-    storage s;
-    srand(time(NULL));
+int main() {
+    double x, xn, prev;
+    int i = 0;
 
-    final int critRate = 75;
+    printf("Enter initial guess: ");
+    scanf("%lf", &x);
 
-    for (int i = 0; i < 10; ++i)
-    {
-        s.critValue[i] = (rand() % 100) + 1;
-        printf("Crit Value: %d\n", s.critValue[i]);
+    printf("Iter | x_n\n");
+
+    for (;;) {
+        double d = function_derivative(x);
+
+        if (d == 0) {
+            printf("Derivative zero, stopping.\n");
+            break;
+        }
+
+        xn = x - function(x) / d;
+
+        printf("%d | %lf\n", i, xn);
+
+        if (fabs(xn - x) < e) {
+            printf("Root found: %lf\n", xn);
+            break;
+        }
+
+        x = xn;
+        i++;
+
+        if (i > 20) {
+            printf("Did not converge.\n");
+            break;
+        }
     }
 
     return 0;
