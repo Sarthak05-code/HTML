@@ -37,6 +37,38 @@ void addPassword()
 }
 
 
+void viewPassword()
+{
+    ifstream file("password.txt");
+    if(!file)
+    {
+        cout << "File can't be found and no password has been saved yet: \n";
+        return;
+    }
+
+    string line;
+
+    cout << "\n===== Saved Password ======\n";
+
+    while (getline(file , line))
+    {
+        int pos1 = line.find('|');
+        int pos2 = line.rfind('|');
+
+        string website = line.substr(0 , pos1);
+        string username = line.substr(pos1 + 1 , pos2 - pos1 - 1);
+        string password = line.substr(pos2 + 1);
+
+        cout << "------------------------\n";
+        cout << "Website : " << website << endl;
+        cout << "Username : " << username << endl;
+        cout << "Password : " << password << endl;
+
+    }
+
+    file.close();
+}
+
 int main()
 {
     int choice;
@@ -53,7 +85,7 @@ int main()
             break;
         
         case 2: 
-            cout <<"View Password Selected: \n";
+            viewPassword();
             break;
         
         case 3: 
