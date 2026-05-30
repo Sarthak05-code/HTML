@@ -29,7 +29,7 @@ void addPassword()
 
     ofstream file("password.txt" , ios::app);
 
-    file << website << " | " << username << " | " << password << endl;
+    file << website << "|" << username << "|" << password << endl;
 
     file.close();
 
@@ -69,6 +69,52 @@ void viewPassword()
     file.close();
 }
 
+void searchPassword()
+{
+    string searchKey;
+    cout << "Enter the website to search : ";
+    cin >> searchKey;
+
+    ifstream file("password.txt");
+    if(!file)
+    {
+        cout << "The file doesnt exist and no data is present: \n";
+        return;
+    }
+
+    string line;
+    bool found = false;
+
+    while(getline(file , line))
+    {
+        int pos1 = line.find('|');
+        int pos2 = line.rfind('|');
+
+        string website = line.substr(0 , pos1);
+        string username = line.substr(pos1 + 1 , pos2 - pos1 - 1);
+        string password = line.substr(pos2 + 1);
+
+        if(website == searchKey)
+        {
+            cout << "=========Match Found==========\n";
+            cout << "Website : " << website << endl;
+            cout << "Username : " << username << endl;
+            cout << "Password : " << password << endl;
+            found = true;
+            break;
+
+        } 
+    }
+    file.close();
+    if(!found)
+    {
+        cout << "No password  was found: \n";
+    }
+
+}
+
+
+
 int main()
 {
     int choice;
@@ -89,7 +135,7 @@ int main()
             break;
         
         case 3: 
-            cout <<"Password Search Selected: \n";
+            searchPassword();
             break;
         
         case  4:
@@ -97,6 +143,7 @@ int main()
             break;
         default:
             cout << "Invalid Choice: \n";
+            break;
         }
     }while(choice != 4);
 
