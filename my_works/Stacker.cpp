@@ -1,4 +1,5 @@
 #include <iostream>
+#include <fstream>
 using namespace std;
 
 void showMenu()
@@ -13,6 +14,28 @@ void showMenu()
 }
 
 
+void addPassword()
+{
+    string website , username , password;
+    cout << "Enter your Website: ";
+    cin >> website;
+
+    cout << "Enter your username: ";
+    cin >> username;
+
+
+    cout << "Enter your password: ";
+    cin >> password;
+
+    ofstream file("password.txt" , ios::app);
+
+    file << website << " | " << username << " | " << password << endl;
+
+    file.close();
+
+    cout << "Password has been saved Successfully. \n";
+}
+
 
 int main()
 {
@@ -26,7 +49,7 @@ int main()
         switch (choice)
         {
         case 1:
-            cout << "Add Password Selected: \n";
+            addPassword();
             break;
         
         case 2: 
