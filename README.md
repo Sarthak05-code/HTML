@@ -2,7 +2,11 @@
 
 ---
 
-This is the main folder I use for most of my projects, as this was the earliest project folder I had made.
+## About Me
+
+Hi, I'm Sarthak — a BCA student from Nepal. I enjoy building projects and learning new technologies, with Java being my current favorite language.
+
+---
 
 ## Different Works
 
@@ -20,6 +24,8 @@ As you can see from the folders, there are different programs I have used, like:
 
 > _Some were taught in school/college/university and some were more of a hobby project._
 
+---
+
 ## Programming Languages and Why I Learned Them
 
 ---
@@ -35,15 +41,35 @@ As you can see from the folders, there are different programs I have used, like:
 
 ---
 
-## Project I have made
+## Projects I Have Made
 
 ---
 
-| **Name**                                                                                         | **Language I used**                                    |
-| ------------------------------------------------------------------------------------------------ | ------------------------------------------------------ |
-| **_Login System_**                                                                               | Python with Tkinter                                    |
-| **_Chess AI_**                                                                                   | Python with Tkinter                                    |
-| [**_Hostel Management System_**](https://github.com/Sarthak05-code/Hostel-Management-System) | Java with springboot , thymeleaf , Mysql ,Html and Css |
-| [**_Hostel Management System - PHP_**](https://github.com/Sarthak05-code/HMS-PHP)                | Php with HTML , CSS , JS and Mysql on XAMPP            |
+| **Name**                                                                                     | **Language Used**                                     |
+| -------------------------------------------------------------------------------------------- | ----------------------------------------------------- |
+| **_Login System_**                                                                           | Python with Tkinter                                   |
+| **_Chess AI_**                                                                               | Python with Tkinter                                   |
+| [**_Hostel Management System_**](https://github.com/Sarthak05-code/Hostel-Management-System) | Java with Spring Boot, Thymeleaf, MySQL, HTML and CSS |
+| [**_Hostel Management System - PHP_**](https://github.com/Sarthak05-code/HMS-PHP)            | PHP with HTML, CSS, JS and MySQL on XAMPP             |
 
-> Note : Some project aren't in the same file but in different repository
+> **Note:** Some projects aren't in the same folder but in different repositories.
+
+---
+
+## Currently Learning
+
+- `Java` — Spring Boot, Spring MVC, Thymeleaf, Spring Data JPA
+- `JavaScript` — University curriculum
+- `C` — Core subject at university
+- `HTML` / `CSS` — Frontend for university and personal projects
+
+---
+
+## Goals
+
+- Get comfortable with full-stack Java development using Spring Boot
+- Build more projects to strengthen my portfolio
+- Improve my understanding of Data Structures and Algorithms in `C`
+- Learn `JavaScript` well enough to build interactive frontends
+
+---
