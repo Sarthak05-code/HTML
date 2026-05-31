@@ -1,47 +1,81 @@
 #include <iostream>
-#include <vector>
 using namespace std;
 
-int main()
+int main(int argc, char const *argv[])
 {
-    int t;
-    cin >> t;
-    vector<vector<int>> allpair;
+    int n, quantums;
+    
+    cout << "Enter number of processes: ";
+    cin >> n;
 
-    int one = 0, two = 0; // one = even count, two = odd count
+    int burstTime[n];
+    int remainingTime[n];
+    int completed = 0;
+    int time = 0;
+    int completedTime[n];
+    int waitingTime[n];
+    int turnAround[n];
 
-    while (t--)
+    cout << "Enter the burst time: \n";
+    for (int i = 0; i < n; ++i)
     {
-        int n;
-        cin >> n;
-        vector<int> arr(n);
+        cout << "Enter P. " << i + 1 << ": ";
+        cin >> burstTime[i];
+    }
 
+    cout << "Enter the time quantum: ";
+    cin >> quantums;
+
+    for (int i = 0; i < n; ++i)
+    {
+        remainingTime[i] = burstTime[i];
+    }
+
+    cout << "Execution order: \n";
+    while (completed < n)
+    {
         for (int i = 0; i < n; ++i)
         {
-            cin >> arr[i];
+            if (remainingTime[i] > 0)
+            {
+                if (remainingTime[i] > quantums)
+
+                {
+                    time += quantums;
+                    remainingTime[i] -= quantums;
+
+                    cout << "P " << i + 1 << " -> ";
+                }
+                else
+                {
+                    time += remainingTime[i];
+                    remainingTime[i] = 0;
+                    completed++;
+
+                    completedTime[i] = time;
+
+                    cout << "P " << i + 1 << " -> ";
+                }
+            }
         }
-
-        allpair.push_back(arr);
     }
+    cout << "\n\n Process Time: \n";
 
-    // Traverse all arrays
-    for (int i = 0; i < allpair.size(); ++i)
+    for(int i = 0 ; i < n ; ++i)
     {
-        for (int j = 0; j < allpair[i].size(); ++j)
-        {
-            if (allpair[i][j] % 2 == 0)
-                one++; // count even
-            else
-                two++; // count odd
-        }
+        turnAround[i] = completedTime[i];
+        waitingTime[i] = turnAround[i] - burstTime[i];
     }
 
-    if (one > two)
-        cout << "Even more";
-    else if (two > one)
-        cout << "Odd more";
-    else
-        cout << "Equal";
+    cout << "P \t BT \t CT \t TAT \t WT\n";
+    for(int i = 0 ; i < n ; ++i)
+    {
+        cout << "P " << i + 1 << "\t"
+            << burstTime[i] << "\t"
+            << completedTime[i] << "\t"
+            << turnAround[i] << "\t"
+            << waitingTime[i] << "\n";
+    }
 
     return 0;
 }
