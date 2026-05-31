@@ -43,7 +43,7 @@ As you can see from the folders, there are different programs I have used, like:
 | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------ |
 | **_Login System_**                                                                               | Python with Tkinter                                    |
 | **_Chess AI_**                                                                                   | Python with Tkinter                                    |
-| [**_Hostel Management System_**](<(https://github.com/Sarthak05-code/Hostel-Management-System)>) | Java with springboot , thymeleaf , Mysql ,Html and Css |
+| [**_Hostel Management System_**](https://github.com/Sarthak05-code/Hostel-Management-System) | Java with springboot , thymeleaf , Mysql ,Html and Css |
 | [**_Hostel Management System - PHP_**](https://github.com/Sarthak05-code/HMS-PHP)                | Php with HTML , CSS , JS and Mysql on XAMPP            |
 
 > Note : Some project aren't in the same file but in different repository
