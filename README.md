@@ -26,7 +26,7 @@ As you can see from the folders, there are different programs I have used, like:
 
 | **Name**      | **Learning Reason**                                            | **Status**                      |
 | ------------- | -------------------------------------------------------------- | ------------------------------- |
-| `Python`      | A hobby — my first language I learned                          | Stopped learning                |
+| `Python`      | A hobby — The first language I learned                         | Stopped learning                |
 | `HTML`, `CSS` | School required frontend design, so we were taught these two   | Learning for Uni                |
 | `C++`         | My friend was learning it, so I was influenced and joined in   | Occasional timepass             |
 | `JavaScript`  | Currently being taught at university                           | Learning for Uni                |
