@@ -38,12 +38,14 @@ static inline void arrayPrinter(const u32 *array, u32 n)
     printf("\n");
 }
 
+// made this for fun 
 typedef struct
 {
     double x;
     double y;
 } Vec2;
 
+// maybe i'll use this someday
 typedef struct
 {
     double x, y, z;

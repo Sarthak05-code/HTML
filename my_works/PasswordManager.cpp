@@ -114,6 +114,13 @@ void searchPassword()
 }
 
 
+void deletePassword()
+{
+    string searchKey;
+
+    cout << "Enter the website to delete: ";
+}
+
 
 int main()
 {
