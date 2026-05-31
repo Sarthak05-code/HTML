@@ -20,7 +20,7 @@ As you can see from the folders, there are different programs I have used, like:
 
 > _Some were taught in school/college/university and some were more of a hobby project._
 
-## Projects and Why I Learned Them
+## Programming Languages and Why I Learned Them
 
 ---
 
@@ -32,3 +32,16 @@ As you can see from the folders, there are different programs I have used, like:
 | `JavaScript`  | Currently being taught at university                           | Learning for Uni                |
 | `Java`        | My current favorite — learned Spring Boot and still going      | Daily learning with Spring Boot |
 | `C`           | My second favorite, and the most actively taught at university | Most active in C                |
+
+
+---
+
+## Project I have made
+
+---
+
+|**Name**|**Language I used**|
+|--------|-------------------|
+|*Login System*|Python with Tkinter|
+|*Chess AI*| Python with Tkinter|
+|*Hostel Management System*| Java with springboot , thymeleaf , Mysql ,Html and Css|
