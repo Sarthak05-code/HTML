@@ -42,6 +42,9 @@ As you can see from the folders, there are different programs I have used, like:
 
 |**Name**|**Language I used**|
 |--------|-------------------|
-|*Login System*|Python with Tkinter|
-|*Chess AI*| Python with Tkinter|
-|*Hostel Management System*| Java with springboot , thymeleaf , Mysql ,Html and Css|
+|***Login System***|Python with Tkinter|
+|***Chess AI***| Python with Tkinter|
+|***Hostel Management System***| Java with springboot , thymeleaf , Mysql ,Html and Css|
+|***Hostel Management System - PHP*** | Php with HTML , CSS , JS and Mysql on XAMPP |
+
+> Note : Some project aren't in the same file but in different repository
