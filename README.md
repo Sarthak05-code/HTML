@@ -2,38 +2,33 @@
 
 ---
 
-- This is the main folder i use for most of my projects , as this was the earliest project folder i had made
+This is the main folder I use for most of my projects, as this was the earliest project folder I had made.
 
-## Different Works.
+## Different Works
 
 ---
 
-As you can see from the folders , there are different programs i have used , Like:
+As you can see from the folders, there are different programs I have used, like:
 
 - `.py`
-
 - `.html`
-
 - `.cpp`
-
 - `.css`
-
 - `.js`
-
 - `.java`
-
 - `.c`
 
-> _Some were taught in school/college/university and some were more of a hobby project_
+> _Some were taught in school/college/university and some were more of a hobby project._
 
-## Project and why i learned them
+## Projects and Why I Learned Them
 
 ---
 
-|**Name** | **Learning Reason** | **Status**|
-|`Python` | As an hobby , My first language I learned | Stopped learning it|
-|`HTML`, `CSS` | Our school wanted us to do some frontend design so we were taught this 2 | Learning for Uni|
-|`C++` | My friend was learning C++ so i was influenced by him and learned this too | Sometime as a timepass|
-|`JavaScript` | Currently being taught to us so I am learning this | Learning for Uni|
-|`Java` | My current Favorite language , I learned Springboot and still learning it | Daily Learning with Springboot |
-|`C`| My second favorite language and the one which is taught the most in my University| Most Active in C|
+| **Name**      | **Learning Reason**                                            | **Status**                      |
+| ------------- | -------------------------------------------------------------- | ------------------------------- |
+| `Python`      | A hobby — my first language I learned                          | Stopped learning                |
+| `HTML`, `CSS` | School required frontend design, so we were taught these two   | Learning for Uni                |
+| `C++`         | My friend was learning it, so I was influenced and joined in   | Occasional timepass             |
+| `JavaScript`  | Currently being taught at university                           | Learning for Uni                |
+| `Java`        | My current favorite — learned Spring Boot and still going      | Daily learning with Spring Boot |
+| `C`           | My second favorite, and the most actively taught at university | Most active in C                |
