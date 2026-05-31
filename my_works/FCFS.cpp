@@ -16,7 +16,7 @@ int main(int argc, char const *argv[])
 
     for (int i = 0; i < n; ++i)
     {
-        cout << "Enter P[" << i + 1 << "] : ";
+        cout << "Enter P[" << i + 1 << "]. : ";
         cin >> burstTime[i];
     }
 
