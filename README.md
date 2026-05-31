@@ -33,18 +33,17 @@ As you can see from the folders, there are different programs I have used, like:
 | `Java`        | My current favorite — learned Spring Boot and still going      | Daily learning with Spring Boot |
 | `C`           | My second favorite, and the most actively taught at university | Most active in C                |
 
-
 ---
 
 ## Project I have made
 
 ---
 
-|**Name**|**Language I used**|
-|--------|-------------------|
-|***Login System***|Python with Tkinter|
-|***Chess AI***| Python with Tkinter|
-|***Hostel Management System***| Java with springboot , thymeleaf , Mysql ,Html and Css|
-|***Hostel Management System - PHP*** | Php with HTML , CSS , JS and Mysql on XAMPP |
+| **Name**                                                                                         | **Language I used**                                    |
+| ------------------------------------------------------------------------------------------------ | ------------------------------------------------------ |
+| **_Login System_**                                                                               | Python with Tkinter                                    |
+| **_Chess AI_**                                                                                   | Python with Tkinter                                    |
+| [**_Hostel Management System_**](<(https://github.com/Sarthak05-code/Hostel-Management-System)>) | Java with springboot , thymeleaf , Mysql ,Html and Css |
+| [**_Hostel Management System - PHP_**](https://github.com/Sarthak05-code/HMS-PHP)                | Php with HTML , CSS , JS and Mysql on XAMPP            |
 
 > Note : Some project aren't in the same file but in different repository
