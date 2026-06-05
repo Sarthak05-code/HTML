@@ -2,12 +2,14 @@
 #define TYPES_H
 
 #include <stdbool.h>
+#include <stdint.h>
+#include <stdio.h>
 
 // ===== Basic Types =====
-typedef unsigned int u32;
-typedef int s32;
-typedef float f32;
-typedef bool b32;
+typedef uint32_t u32; // unsigned 32 bit integer
+typedef int32_t s32;  // signed 32 bit integer
+typedef float f32;    // for decimals
+typedef bool b32;     // for boolean
 
 // ===== Utility Functions =====
 
@@ -18,7 +20,7 @@ static inline b32 isEven(s32 n)
 }
 
 // Factorial
-static inline u32 factorial(u32 n)
+static inline uint64_t factorial(uint32_t n)
 {
     u32 result = 1;
     for (u32 i = 1; i <= n; i++)
@@ -38,7 +40,7 @@ static inline void arrayPrinter(const u32 *array, u32 n)
     printf("\n");
 }
 
-// made this for fun 
+// made this for fun
 typedef struct
 {
     double x;
