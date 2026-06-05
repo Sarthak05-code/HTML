@@ -6,10 +6,20 @@
 #include <stdio.h>
 
 // ===== Basic Types =====
+typedef uint8_t u8;   // unsigned 8 bit integer
+typedef uint16_t u16; // unsigned 16 bit integer
 typedef uint32_t u32; // unsigned 32 bit integer
-typedef int32_t s32;  // signed 32 bit integer
-typedef float f32;    // for decimals
-typedef bool b32;     // for boolean
+typedef uint64_t u64; // unsigned 64 bit integer
+
+typedef int8_t s8;   // signed 8 bit integer
+typedef int16_t s16; // signed 16 bit integer
+typedef int32_t s32; // signed 32 bit integer
+typedef int64_t s64; // signed 64 bit integer
+
+typedef float f32;  // float for 32 bit
+typedef double f64; // 64 bit floating point 
+
+typedef bool b8; // boolean and for historical convention
 
 // ===== Utility Functions =====
 
