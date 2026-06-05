@@ -50,5 +50,12 @@ typedef struct
 {
     double x, y, z;
 } Vec3;
+// making c function like python
+
+#define and &&
+#define or ||
+#define not !
+#define is ==
+#define isnt !=
 
 #endif
