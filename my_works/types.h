@@ -1,46 +1,47 @@
 #ifndef TYPES_H
 #define TYPES_H
 
+#pragma once
+
 #include <stdbool.h>
 #include <stdint.h>
 #include <stdio.h>
 
 // ===== Basic Types =====
-typedef uint8_t u8;   // unsigned 8 bit integer
-typedef uint16_t u16; // unsigned 16 bit integer
-typedef uint32_t u32; // unsigned 32 bit integer
-typedef uint64_t u64; // unsigned 64 bit integer
+typedef uint8_t u8;
+typedef uint16_t u16;
+typedef uint32_t u32;
+typedef uint64_t u64;
 
-typedef int8_t s8;   // signed 8 bit integer
-typedef int16_t s16; // signed 16 bit integer
-typedef int32_t s32; // signed 32 bit integer
-typedef int64_t s64; // signed 64 bit integer
+typedef int8_t s8;
+typedef int16_t s16;
+typedef int32_t s32;
+typedef int64_t s64;
 
-typedef float f32;  // float for 32 bit
-typedef double f64; // 64 bit floating point
+typedef float f32;
+typedef double f64;
 
-typedef bool b8; // boolean and for historical convention
+typedef bool b8;
 
 // ===== Utility Functions =====
 
-// Check even number
 static inline b8 isEven(s32 n)
 {
     return (n % 2 == 0);
 }
 
-// Factorial
-static inline uint64_t factorial(uint32_t n)
+static inline u64 factorial(u32 n)
 {
-    u32 result = 1;
+    u64 result = 1;
+
     for (u32 i = 1; i <= n; i++)
     {
         result *= i;
     }
+
     return result;
 }
 
-// Print array
 static inline void arrayPrinter(const u32 *array, u32 n)
 {
     for (u32 i = 0; i < n; i++)
@@ -50,30 +51,35 @@ static inline void arrayPrinter(const u32 *array, u32 n)
     printf("\n");
 }
 
-// made this for fun
+// ===== Math Constants =====
+#define PI 3.14159265358979323846
+#define TAU 6.28318530717958647692
+#define E 2.71828182845904523536
+
+#define DEG_TO_RAD (PI / 180.0)
+#define RAD_TO_DEG (180.0 / PI)
+
+// ===== Structs =====
 typedef struct
 {
-    double x;
-    double y;
+    f64 x;
+    f64 y;
 } Vec2;
 
-// maybe i'll use this someday
 typedef struct
 {
-    double x, y, z;
+    f64 x, y, z;
 } Vec3;
-// making c function like python
 
+// ===== Fun Macros (unsafe but fun) =====
 #define and &&
 #define or ||
 #define not !
 #define is ==
 #define isnt !=
-
-#define PI 3.14159265358979323846
-#define TAU 6.28318530717958647692
-#define E 2.71828182845904523536
-#define DEG_TO_RAD (PI / 180.0)
-#define RAD_TO_DEG (180.0 / PI)
+#define is_lesser_equal <=
+#define is_greater_equal >=
+#define is_less <
+#define is_greater >
 
 #endif
