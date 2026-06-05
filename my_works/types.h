@@ -17,14 +17,14 @@ typedef int32_t s32; // signed 32 bit integer
 typedef int64_t s64; // signed 64 bit integer
 
 typedef float f32;  // float for 32 bit
-typedef double f64; // 64 bit floating point 
+typedef double f64; // 64 bit floating point
 
 typedef bool b8; // boolean and for historical convention
 
 // ===== Utility Functions =====
 
 // Check even number
-static inline b32 isEven(s32 n)
+static inline b8 isEven(s32 n)
 {
     return (n % 2 == 0);
 }
@@ -69,5 +69,11 @@ typedef struct
 #define not !
 #define is ==
 #define isnt !=
+
+#define PI 3.14159265358979323846
+#define TAU 6.28318530717958647692
+#define E 2.71828182845904523536
+#define DEG_TO_RAD (PI / 180.0)
+#define RAD_TO_DEG (180.0 / PI)
 
 #endif
