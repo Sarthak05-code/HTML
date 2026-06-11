@@ -138,13 +138,13 @@
             Hi, I'm <span class="text-accent">Sarthak</span>.
           </h1>
           <h2 class="font-mono text-xl sm:text-2xl text-muted mb-6 typing-text">
-            <span id="typed">C dev</span>
+            <span id="typed">Java dev</span>
           </h2>
           <p class="text-base sm:text-lg text-muted leading-relaxed max-w-xl mb-8 border-l-2 border-line pl-4">
             I've been learning a range of languages — mainly
-            <span class="text-text">Python</span> and <span class="text-text">C/C++</span>.
-            Python is where I'm most comfortable, exploring different modules and
-            working toward machine learning. Right now I'm focused on
+            <span class="text-text">Java</span> and <span class="text-text">C/C++</span>.
+            Java is where I'm most comfortable, building backend applications with
+            <span class="text-text">Spring Boot</span>. Right now I'm focused on
             <span class="text-text">data structures and algorithms</span>.
           </p>
 
@@ -173,22 +173,24 @@
               <span class="w-3 h-3 rounded-full bg-[#ff5f56]"></span>
               <span class="w-3 h-3 rounded-full bg-[#ffbd2e]"></span>
               <span class="w-3 h-3 rounded-full bg-[#27c93f]"></span>
-              <span class="ml-3 font-mono text-xs text-muted">about_me.py</span>
+              <span class="ml-3 font-mono text-xs text-muted">AboutMe.java</span>
             </div>
             <div class="p-6 font-mono text-sm leading-relaxed">
-<pre><span class="text-[#ff7b72]">class</span> <span class="text-[#d2a8ff]">Developer</span>:
-    <span class="text-[#ff7b72]">def</span> <span class="text-[#d2a8ff]">__init__</span>(self):
-        self.name = <span class="text-accent">"Sarthak Thapa"</span>
-        self.role = <span class="text-accent">"BCA Student"</span>
-        self.location = <span class="text-accent">"Kathmandu, NP"</span>
-        self.stack = [
-            <span class="text-accent">"Python"</span>, <span class="text-accent">"C/C++"</span>,
-            <span class="text-accent">"PHP"</span>, <span class="text-accent">"Java"</span>
-        ]
-        self.focus = <span class="text-accent">"DSA + ML"</span>
+<pre><span class="text-[#ff7b72]">@Getter</span>
+<span class="text-[#ff7b72]">public class</span> <span class="text-[#d2a8ff]">Developer</span> {
+    <span class="text-[#ff7b72]">private</span> String name = <span class="text-accent">"Sarthak Thapa"</span>;
+    <span class="text-[#ff7b72]">private</span> String role = <span class="text-accent">"BCA Student"</span>;
+    <span class="text-[#ff7b72]">private</span> String location = <span class="text-accent">"Kathmandu, NP"</span>;
+    <span class="text-[#ff7b72]">private</span> List&lt;String&gt; stack = List.of(
+        <span class="text-accent">"Java"</span>, <span class="text-accent">"Spring Boot"</span>,
+        <span class="text-accent">"C/C++"</span>, <span class="text-accent">"PHP"</span>
+    );
+    <span class="text-[#ff7b72]">private</span> String focus = <span class="text-accent">"DSA + Backend Dev"</span>;
 
-    <span class="text-[#ff7b72]">def</span> <span class="text-[#d2a8ff]">say_hi</span>(self):
-        <span class="text-[#ff7b72]">return</span> <span class="text-accent">f"Hello, world!"</span></pre>
+    <span class="text-[#ff7b72]">public</span> String sayHi() {
+        <span class="text-[#ff7b72]">return</span> <span class="text-accent">"Hello, world!"</span>;
+    }
+}</pre>
             </div>
           </div>
           <div class="absolute -z-10 -inset-4 bg-accent/5 blur-3xl rounded-full"></div>
@@ -215,9 +217,9 @@
             <p class="text-muted text-sm leading-relaxed">Practicing and applying data structures and algorithms in C/C++ and Python.</p>
           </div>
           <div class="border border-line bg-panel rounded-lg p-6 hover:border-accent/60 transition-colors">
-            <i class="fa-solid fa-robot text-accent text-2xl mb-4"></i>
-            <h3 class="font-bold text-lg text-white mb-2">Machine Learning</h3>
-            <p class="text-muted text-sm leading-relaxed">Exploring Python ML modules and foundational concepts.</p>
+            <i class="fa-solid fa-server text-accent text-2xl mb-4"></i>
+            <h3 class="font-bold text-lg text-white mb-2">Backend Development</h3>
+            <p class="text-muted text-sm leading-relaxed">Building backend applications and APIs with Java and Spring Boot.</p>
           </div>
         </div>
       </div>
@@ -230,15 +232,15 @@
         <h2 class="text-3xl sm:text-4xl font-extrabold text-white mb-12">Skills</h2>
 
         <div class="flex flex-wrap gap-3 font-mono text-sm">
-          <span class="border border-line rounded-md px-4 py-2 hover:border-accent hover:text-accent transition-colors">Python</span>
-          <span class="border border-line rounded-md px-4 py-2 hover:border-accent hover:text-accent transition-colors">C / C++</span>
           <span class="border border-line rounded-md px-4 py-2 hover:border-accent hover:text-accent transition-colors">Java (OOP)</span>
+          <span class="border border-line rounded-md px-4 py-2 hover:border-accent hover:text-accent transition-colors">Spring Boot</span>
+          <span class="border border-line rounded-md px-4 py-2 hover:border-accent hover:text-accent transition-colors">C / C++</span>
+          <span class="border border-line rounded-md px-4 py-2 hover:border-accent hover:text-accent transition-colors">Python</span>
           <span class="border border-line rounded-md px-4 py-2 hover:border-accent hover:text-accent transition-colors">PHP</span>
           <span class="border border-line rounded-md px-4 py-2 hover:border-accent hover:text-accent transition-colors">HTML / CSS</span>
           <span class="border border-line rounded-md px-4 py-2 hover:border-accent hover:text-accent transition-colors">JavaScript</span>
           <span class="border border-line rounded-md px-4 py-2 hover:border-accent hover:text-accent transition-colors">MySQL</span>
           <span class="border border-line rounded-md px-4 py-2 hover:border-accent hover:text-accent transition-colors">Bash</span>
-          <span class="border border-line rounded-md px-4 py-2 hover:border-accent hover:text-accent transition-colors">Spring Boot</span>
           <span class="border border-line rounded-md px-4 py-2 hover:border-accent hover:text-accent transition-colors">Data Structures &amp; Algorithms</span>
         </div>
       </div>
@@ -274,6 +276,13 @@
         <h2 class="text-3xl sm:text-4xl font-extrabold text-white mb-12">Experience &amp; Projects</h2>
 
         <div class="grid sm:grid-cols-2 gap-6">
+          <div class="border border-line bg-panel rounded-lg p-6">
+            <div class="flex items-center justify-between mb-3">
+              <h3 class="font-bold text-lg text-white">Course Recommender</h3>
+              <span class="font-mono text-xs text-accent border border-accent/40 rounded px-2 py-0.5">Spring Boot</span>
+            </div>
+            <p class="text-muted text-sm leading-relaxed">A backend application built with Spring Boot, Java, MySQL, Spring Data JPA, and Thymeleaf — an ongoing project for exploring backend development.</p>
+          </div>
           <div class="border border-line bg-panel rounded-lg p-6">
             <div class="flex items-center justify-between mb-3">
               <h3 class="font-bold text-lg text-white">BidBoard</h3>

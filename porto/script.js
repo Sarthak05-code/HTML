@@ -16,7 +16,7 @@ mobileNav.querySelectorAll('a').forEach(link => {
 });
 
 // Typing effect
-const words = ["C dev", "Python dev", "C++ dev", "Bash user", "Aspiring ML dev"];
+const words = ["Java dev", "Spring Boot dev", "C/C++ dev", "Bash user", "Backend dev"];
 const typedEl = document.getElementById('typed');
 let wordIndex = 0;
 let charIndex = 0;
