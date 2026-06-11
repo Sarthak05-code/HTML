@@ -45,12 +45,12 @@ As you can see from the folders, there are different programs I have used, like:
 
 ---
 
-| **Name**                                                                                     | **Language Used**                                     |
-| -------------------------------------------------------------------------------------------- | ----------------------------------------------------- |
-| [**_Login System_**](https://github.com/Sarthak05-code/HTML/blob/main/my_works/cal.py)                                                                           | Python with Tkinter                                   |
-| [**_Tic-Tac-Toe AI_**](https://github.com/Sarthak05-code/HTML/blob/main/my_works/dsa.py)                                                                               | Python with Tkinter                                   |
-| [**_Hostel Management System_**](https://github.com/Sarthak05-code/Hostel-Management-System) | Java with Spring Boot, Thymeleaf, MySQL, HTML and CSS |
-| [**_Hostel Management System - PHP_**](https://github.com/Sarthak05-code/HMS-PHP)            | PHP with HTML, CSS, JS and MySQL on XAMPP             |
+| **Name**                                                                                          | **Language Used**                                     |
+| ------------------------------------------------------------------------------------------------- | ----------------------------------------------------- |
+| [**_Login System_**](https://github.com/Sarthak05-code/HTML/blob/main/my_works/cal.py)            | Python with Tkinter                                   |
+| [**_Tic-Tac-Toe AI_**](https://github.com/Sarthak05-code/HTML/blob/main/my_works/dsa.py)          | Python with Tkinter                                   |
+| [**_Hostel Management System_**](https://github.com/Sarthak05-code/Hostel-Management-System)      | Java with Spring Boot, Thymeleaf, MySQL, HTML and CSS |
+| [**_Freelance-Bidding-System_**](https://github.com/Sarthak05-code/Freelance---BiddingSystem.git) | PHP with HTML, CSS, JS and MySQL on XAMPP             |
 
 > **Note:** Some projects aren't in the same folder but in different repositories.
 
