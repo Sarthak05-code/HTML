@@ -10,46 +10,304 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
-    <link rel="stylesheet" href="style.css" />
-    <title>Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              bg: '#0a0e14',
+              panel: '#10151f',
+              line: '#1f2733',
+              accent: '#7ee787',
+              accent2: '#ff7b72',
+              muted: '#6b7787',
+              text: '#c9d1d9',
+            },
+            fontFamily: {
+              mono: ['JetBrains Mono', 'monospace'],
+              sans: ['Inter', 'sans-serif'],
+            }
+          }
+        }
+      }
+    </script>
+    <title>Sarthak Thapa — Portfolio</title>
+    <style>
+      ::selection { background: #7ee78733; color: #fff; }
+
+      .typing-text span::after {
+        content: "";
+        display: inline-block;
+        width: 3px;
+        height: 1em;
+        background: #7ee787;
+        margin-left: 4px;
+        vertical-align: text-bottom;
+        animation: blink 0.9s steps(1) infinite;
+      }
+      @keyframes blink { 50% { opacity: 0; } }
+
+      .glow {
+        box-shadow: 0 0 0 1px #1f2733, 0 0 60px -15px rgba(126,231,135,0.25);
+      }
+
+      .scanlines::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: repeating-linear-gradient(
+          to bottom,
+          rgba(255,255,255,0.025) 0px,
+          rgba(255,255,255,0.025) 1px,
+          transparent 1px,
+          transparent 3px
+        );
+        pointer-events: none;
+        border-radius: inherit;
+      }
+
+      .nav-link { position: relative; }
+      .nav-link::after {
+        content: "";
+        position: absolute;
+        left: 0; bottom: -4px;
+        width: 0%; height: 2px;
+        background: #7ee787;
+        transition: width 0.25s ease;
+      }
+      .nav-link:hover::after { width: 100%; }
+
+      @keyframes fadeUp {
+        from { opacity: 0; transform: translateY(16px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+      .fade-up { animation: fadeUp 0.7s ease both; }
+      .delay-1 { animation-delay: 0.1s; }
+      .delay-2 { animation-delay: 0.25s; }
+      .delay-3 { animation-delay: 0.4s; }
+      .delay-4 { animation-delay: 0.55s; }
+
+      @media (prefers-reduced-motion: reduce) {
+        .fade-up, .typing-text span::after { animation: none; }
+      }
+    </style>
   </head>
-  <body>
-    <header>
-      <a href="#" class="logo">Sarthak Thapa</a>
-      <div class="menu-toggle" id="menu-toggle">
-        <i class="fa fa-bars"></i>
+  <body class="bg-bg text-text font-sans antialiased min-h-screen">
+
+    <!-- Header -->
+    <header class="fixed top-0 left-0 w-full z-50 border-b border-line/80 bg-bg/80 backdrop-blur-md">
+      <div class="max-w-6xl mx-auto flex items-center justify-between px-6 py-4">
+        <a href="#" class="font-mono font-bold text-lg text-text flex items-center gap-2">
+          <span class="text-accent">&gt;</span>sarthak<span class="text-accent2">.dev</span>
+        </a>
+
+        <nav id="nav" class="hidden md:flex items-center gap-8 font-mono text-sm">
+          <a href="#home" class="nav-link text-text hover:text-accent transition-colors">~/home</a>
+          <a href="#services" class="nav-link text-text hover:text-accent transition-colors">~/services</a>
+          <a href="#skills" class="nav-link text-text hover:text-accent transition-colors">~/skills</a>
+          <a href="#education" class="nav-link text-text hover:text-accent transition-colors">~/education</a>
+          <a href="#experience" class="nav-link text-text hover:text-accent transition-colors">~/experience</a>
+          <a href="#contact" class="nav-link text-accent hover:text-accent transition-colors">~/contact</a>
+        </nav>
+
+        <div id="menu-toggle" class="md:hidden text-2xl text-text cursor-pointer">
+          <i class="fa fa-bars"></i>
+        </div>
       </div>
-      <nav>
-        <a href="../index.html" class="active">Home</a>
-        <a href="#">Services</a>
-        <a href="#">Skills</a>
-        <a href="#">Education</a>
-        <a href="#">Experience</a>
-        <a href="#">Contact</a>
+
+      <!-- mobile nav -->
+      <nav id="mobile-nav" class="md:hidden hidden flex-col gap-1 px-6 pb-4 font-mono text-sm border-t border-line">
+        <a href="#home" class="block py-3 px-2 rounded hover:bg-panel hover:text-accent transition-colors">~/home</a>
+        <a href="#services" class="block py-3 px-2 rounded hover:bg-panel hover:text-accent transition-colors">~/services</a>
+        <a href="#skills" class="block py-3 px-2 rounded hover:bg-panel hover:text-accent transition-colors">~/skills</a>
+        <a href="#education" class="block py-3 px-2 rounded hover:bg-panel hover:text-accent transition-colors">~/education</a>
+        <a href="#experience" class="block py-3 px-2 rounded hover:bg-panel hover:text-accent transition-colors">~/experience</a>
+        <a href="#contact" class="block py-3 px-2 rounded text-accent hover:bg-panel transition-colors">~/contact</a>
       </nav>
     </header>
-    <section class="home">
-      <div class="home-img"><img src="optimumpride.jpg" alt="" /></div>
-      <div class="home-content">
-        <h1>Hi, it's <span>Sarthak</span></h1>
-        <h3 class="typing-text">I am <span></span></h3>
-        <p>
-          I have been learning about many different coding language, which
-          consists of Python , C/C++. The language that I am the most
-          comfortable in is Python, where I have been learning different modules
-          and eventually machine learning. Currently I am practicing Data
-          structures and algorithms.
-        </p>
-        <div class="social-icons">
-          <a href="#"><i class="fa-brands fa-linkedin"></i></a>
-          <a href="#"><i class="fa-brands fa-github"></i></a>
-          <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
-          <a href="#"><i class="fa-brands fa-instagram"></i></a>
-          <a href="#"><i class="fa-brands fa-facebook"></i></a>
+
+    <!-- Home -->
+    <section id="home" class="min-h-screen flex items-center px-6 pt-28 pb-16">
+      <div class="max-w-6xl mx-auto w-full grid md:grid-cols-[1.3fr_1fr] gap-12 items-center">
+
+        <div class="fade-up">
+          <p class="font-mono text-accent text-sm mb-4 tracking-wide">$ whoami</p>
+          <h1 class="text-4xl sm:text-6xl font-extrabold leading-tight text-white mb-4">
+            Hi, I'm <span class="text-accent">Sarthak</span>.
+          </h1>
+          <h2 class="font-mono text-xl sm:text-2xl text-muted mb-6 typing-text">
+            <span id="typed">C dev</span>
+          </h2>
+          <p class="text-base sm:text-lg text-muted leading-relaxed max-w-xl mb-8 border-l-2 border-line pl-4">
+            I've been learning a range of languages — mainly
+            <span class="text-text">Python</span> and <span class="text-text">C/C++</span>.
+            Python is where I'm most comfortable, exploring different modules and
+            working toward machine learning. Right now I'm focused on
+            <span class="text-text">data structures and algorithms</span>.
+          </p>
+
+          <div class="flex items-center gap-4 mb-8 flex-wrap">
+            <a href="#contact" class="inline-flex items-center gap-2 bg-accent text-bg font-mono font-bold text-sm px-6 py-3 rounded-md hover:shadow-[0_0_25px_-5px_#7ee787] transition-shadow">
+              Hire Me <i class="fa-solid fa-arrow-right text-xs"></i>
+            </a>
+            <a href="#" class="inline-flex items-center gap-2 border border-line text-text font-mono text-sm px-6 py-3 rounded-md hover:border-accent hover:text-accent transition-colors">
+              View Projects
+            </a>
+          </div>
+
+          <div class="flex gap-3">
+            <a href="#" class="w-10 h-10 flex items-center justify-center rounded-md border border-line text-muted hover:text-accent hover:border-accent transition-colors"><i class="fa-brands fa-linkedin"></i></a>
+            <a href="#" class="w-10 h-10 flex items-center justify-center rounded-md border border-line text-muted hover:text-accent hover:border-accent transition-colors"><i class="fa-brands fa-github"></i></a>
+            <a href="#" class="w-10 h-10 flex items-center justify-center rounded-md border border-line text-muted hover:text-accent hover:border-accent transition-colors"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="#" class="w-10 h-10 flex items-center justify-center rounded-md border border-line text-muted hover:text-accent hover:border-accent transition-colors"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#" class="w-10 h-10 flex items-center justify-center rounded-md border border-line text-muted hover:text-accent hover:border-accent transition-colors"><i class="fa-brands fa-facebook"></i></a>
+          </div>
         </div>
-        <a href="#" class="btn">Hire Me!</a>
+
+        <!-- Code-card signature element -->
+        <div class="fade-up delay-2 relative">
+          <div class="relative rounded-xl border border-line bg-panel glow scanlines overflow-hidden">
+            <div class="flex items-center gap-2 px-4 py-3 border-b border-line bg-bg/60">
+              <span class="w-3 h-3 rounded-full bg-[#ff5f56]"></span>
+              <span class="w-3 h-3 rounded-full bg-[#ffbd2e]"></span>
+              <span class="w-3 h-3 rounded-full bg-[#27c93f]"></span>
+              <span class="ml-3 font-mono text-xs text-muted">about_me.py</span>
+            </div>
+            <div class="p-6 font-mono text-sm leading-relaxed">
+<pre><span class="text-[#ff7b72]">class</span> <span class="text-[#d2a8ff]">Developer</span>:
+    <span class="text-[#ff7b72]">def</span> <span class="text-[#d2a8ff]">__init__</span>(self):
+        self.name = <span class="text-accent">"Sarthak Thapa"</span>
+        self.role = <span class="text-accent">"BCA Student"</span>
+        self.location = <span class="text-accent">"Kathmandu, NP"</span>
+        self.stack = [
+            <span class="text-accent">"Python"</span>, <span class="text-accent">"C/C++"</span>,
+            <span class="text-accent">"PHP"</span>, <span class="text-accent">"Java"</span>
+        ]
+        self.focus = <span class="text-accent">"DSA + ML"</span>
+
+    <span class="text-[#ff7b72]">def</span> <span class="text-[#d2a8ff]">say_hi</span>(self):
+        <span class="text-[#ff7b72]">return</span> <span class="text-accent">f"Hello, world!"</span></pre>
+            </div>
+          </div>
+          <div class="absolute -z-10 -inset-4 bg-accent/5 blur-3xl rounded-full"></div>
+        </div>
+
       </div>
     </section>
+
+    <!-- Services -->
+    <section id="services" class="px-6 py-24 border-t border-line">
+      <div class="max-w-6xl mx-auto">
+        <p class="font-mono text-accent text-sm mb-2">$ ls services/</p>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-white mb-12">What I Can Help With</h2>
+
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div class="border border-line bg-panel rounded-lg p-6 hover:border-accent/60 transition-colors">
+            <i class="fa-solid fa-code text-accent text-2xl mb-4"></i>
+            <h3 class="font-bold text-lg text-white mb-2">Web Development</h3>
+            <p class="text-muted text-sm leading-relaxed">Building clean, functional websites with HTML, CSS, JS and PHP.</p>
+          </div>
+          <div class="border border-line bg-panel rounded-lg p-6 hover:border-accent/60 transition-colors">
+            <i class="fa-solid fa-diagram-project text-accent text-2xl mb-4"></i>
+            <h3 class="font-bold text-lg text-white mb-2">DSA &amp; Problem Solving</h3>
+            <p class="text-muted text-sm leading-relaxed">Practicing and applying data structures and algorithms in C/C++ and Python.</p>
+          </div>
+          <div class="border border-line bg-panel rounded-lg p-6 hover:border-accent/60 transition-colors">
+            <i class="fa-solid fa-robot text-accent text-2xl mb-4"></i>
+            <h3 class="font-bold text-lg text-white mb-2">Machine Learning</h3>
+            <p class="text-muted text-sm leading-relaxed">Exploring Python ML modules and foundational concepts.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills -->
+    <section id="skills" class="px-6 py-24 border-t border-line bg-panel/40">
+      <div class="max-w-6xl mx-auto">
+        <p class="font-mono text-accent text-sm mb-2">$ cat skills.json</p>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-white mb-12">Skills</h2>
+
+        <div class="flex flex-wrap gap-3 font-mono text-sm">
+          <span class="border border-line rounded-md px-4 py-2 hover:border-accent hover:text-accent transition-colors">Python</span>
+          <span class="border border-line rounded-md px-4 py-2 hover:border-accent hover:text-accent transition-colors">C / C++</span>
+          <span class="border border-line rounded-md px-4 py-2 hover:border-accent hover:text-accent transition-colors">Java (OOP)</span>
+          <span class="border border-line rounded-md px-4 py-2 hover:border-accent hover:text-accent transition-colors">PHP</span>
+          <span class="border border-line rounded-md px-4 py-2 hover:border-accent hover:text-accent transition-colors">HTML / CSS</span>
+          <span class="border border-line rounded-md px-4 py-2 hover:border-accent hover:text-accent transition-colors">JavaScript</span>
+          <span class="border border-line rounded-md px-4 py-2 hover:border-accent hover:text-accent transition-colors">MySQL</span>
+          <span class="border border-line rounded-md px-4 py-2 hover:border-accent hover:text-accent transition-colors">Bash</span>
+          <span class="border border-line rounded-md px-4 py-2 hover:border-accent hover:text-accent transition-colors">Spring Boot</span>
+          <span class="border border-line rounded-md px-4 py-2 hover:border-accent hover:text-accent transition-colors">Data Structures &amp; Algorithms</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Education -->
+    <section id="education" class="px-6 py-24 border-t border-line">
+      <div class="max-w-6xl mx-auto">
+        <p class="font-mono text-accent text-sm mb-2">$ cat education.log</p>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-white mb-12">Education</h2>
+
+        <div class="space-y-6 max-w-2xl">
+          <div class="border-l-2 border-accent pl-6 relative">
+            <span class="absolute -left-[7px] top-1 w-3 h-3 rounded-full bg-accent"></span>
+            <h3 class="font-bold text-lg text-white">Bachelor of Computer Application (BCA)</h3>
+            <p class="font-mono text-sm text-muted mt-1">Currently pursuing — Kathmandu, Nepal</p>
+            <p class="text-muted text-sm mt-2 leading-relaxed">Focused on programming fundamentals, OOP, DSA, databases, and software development practices.</p>
+          </div>
+          <div class="border-l-2 border-line pl-6 relative">
+            <span class="absolute -left-[7px] top-1 w-3 h-3 rounded-full bg-line"></span>
+            <h3 class="font-bold text-lg text-white">+2 / Commerce Background</h3>
+            <p class="font-mono text-sm text-muted mt-1">Prior education</p>
+            <p class="text-muted text-sm mt-2 leading-relaxed">Built a foundation in commerce before transitioning into computer applications and software development.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Experience -->
+    <section id="experience" class="px-6 py-24 border-t border-line bg-panel/40">
+      <div class="max-w-6xl mx-auto">
+        <p class="font-mono text-accent text-sm mb-2">$ git log --projects</p>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-white mb-12">Experience &amp; Projects</h2>
+
+        <div class="grid sm:grid-cols-2 gap-6">
+          <div class="border border-line bg-panel rounded-lg p-6">
+            <div class="flex items-center justify-between mb-3">
+              <h3 class="font-bold text-lg text-white">BidBoard</h3>
+              <span class="font-mono text-xs text-accent border border-accent/40 rounded px-2 py-0.5">PHP</span>
+            </div>
+            <p class="text-muted text-sm leading-relaxed">A freelance task bidding platform with Admin and Client roles, bid management, duplicate bid prevention, and keyword search. Built with vanilla PHP/HTML/CSS/JS on XAMPP.</p>
+          </div>
+          <div class="border border-line bg-panel rounded-lg p-6">
+            <div class="flex items-center justify-between mb-3">
+              <h3 class="font-bold text-lg text-white">Hostel Management System</h3>
+              <span class="font-mono text-xs text-accent border border-accent/40 rounded px-2 py-0.5">PHP / MySQL</span>
+            </div>
+            <p class="text-muted text-sm leading-relaxed">A college project featuring Admin and Student portals, attendance tracking, fee management with overdue detection, and a notice board.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="px-6 py-24 border-t border-line">
+      <div class="max-w-3xl mx-auto text-center">
+        <p class="font-mono text-accent text-sm mb-2">$ ./connect.sh</p>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-white mb-4">Let's Build Something</h2>
+        <p class="text-muted mb-8">Open to internships, collaborations, and interesting projects.</p>
+        <a href="#" class="inline-flex items-center gap-2 bg-accent text-bg font-mono font-bold text-sm px-8 py-4 rounded-md hover:shadow-[0_0_25px_-5px_#7ee787] transition-shadow">
+          Get In Touch <i class="fa-solid fa-paper-plane text-xs"></i>
+        </a>
+      </div>
+    </section>
+
+    <footer class="border-t border-line px-6 py-6 text-center font-mono text-xs text-muted">
+      &copy; 2026 Sarthak Thapa — built with Tailwind CSS
+    </footer>
+
     <script src="script.js"></script>
   </body>
 </html>
