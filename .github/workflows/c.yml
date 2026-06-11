@@ -4,12 +4,16 @@ on:
   push:
     branches: [main]
     paths:
-      - '**/*.c'
-      - '**/*.h'
+      - "**/*.c"
+      - "**/*.h"
   pull_request:
     paths:
-      - '**/*.c'
-      - '**/*.h'
+      - "**/*.c"
+      - "**/*.h"
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
   build:

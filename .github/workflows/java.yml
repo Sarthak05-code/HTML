@@ -4,13 +4,15 @@ on:
   push:
     branches: [main]
     paths:
-      - '**/pom.xml'
-      - '**/*.java'
+      - "**/pom.xml"
+      - "**/*.java"
   pull_request:
     paths:
-      - '**/pom.xml'
-      - '**/*.java'
-
+      - "**/pom.xml"
+      - "**/*.java"
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
 jobs:
   build:
     runs-on: ubuntu-latest

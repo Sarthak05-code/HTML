@@ -4,10 +4,13 @@ on:
   push:
     branches: [main]
     paths:
-      - '**/*.py'
+      - "**/*.py"
   pull_request:
     paths:
-      - '**/*.py'
+      - "**/*.py"
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
   lint:
