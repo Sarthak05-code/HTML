@@ -1,6 +1,7 @@
 #include <iostream>
 #include <fstream>
 #include <cstdio>
+#include <string>
 using namespace std;
 
 void showMenu()

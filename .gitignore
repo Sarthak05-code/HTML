@@ -10,3 +10,4 @@ node_module/
 .env
 *.txt
 *.docx
+*.clangd
