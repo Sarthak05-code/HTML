@@ -9,3 +9,4 @@ target/
 node_module/
 .env
 *.txt
+*.docx
