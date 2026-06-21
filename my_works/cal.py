@@ -1,6 +1,9 @@
 import tkinter as tk
 from tkinter import messagebox
-import json, os, hashlib, re
+import json
+import os
+import hashlib
+import re
 
 user_file = "file.json"
 
