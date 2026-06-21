@@ -5,7 +5,7 @@
 
 #define sysclear "\033[H\033[2J"
 #define BOUND 10.0
-
+ 
 // Random float between min and max
 static inline f64 randRange(f64 min, f64 max)
 {

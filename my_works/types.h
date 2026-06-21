@@ -25,30 +25,23 @@ typedef bool b8;
 
 // ===== Utility Functions =====
 
-static inline b8 isEven(s32 n)
-{
-    return (n % 2 == 0);
+static inline b8 isEven(s32 n) { return (n % 2 == 0); }
+
+static inline u64 factorial(u32 n) {
+  u64 result = 1;
+
+  for (u32 i = 1; i <= n; i++) {
+    result *= i;
+  }
+
+  return result;
 }
 
-static inline u64 factorial(u32 n)
-{
-    u64 result = 1;
-
-    for (u32 i = 1; i <= n; i++)
-    {
-        result *= i;
-    }
-
-    return result;
-}
-
-static inline void arrayPrinter(const u32 *array, u32 n)
-{
-    for (u32 i = 0; i < n; i++)
-    {
-        printf("%u\t", array[i]);
-    }
-    printf("\n");
+static inline void arrayPrinter(const u32 *array, u32 n) {
+  for (u32 i = 0; i < n; i++) {
+    printf("%u\t", array[i]);
+  }
+  printf("\n");
 }
 
 // ===== Math Constants =====
@@ -60,21 +53,19 @@ static inline void arrayPrinter(const u32 *array, u32 n)
 #define RAD_TO_DEG (180.0 / PI)
 
 // ===== Structs =====
-typedef struct
-{
-    f64 x;
-    f64 y;
+typedef struct {
+  f64 x;
+  f64 y;
 } Vec2;
 
-typedef struct
-{
-    f64 x, y, z;
+typedef struct {
+  f64 x, y, z;
 } Vec3;
 
 // ===== Fun Macros (unsafe but fun) =====
-#define and &&
-#define or ||
-#define not !
+#define AND &&
+#define OR ||
+#define NOT !
 #define is ==
 #define isnt !=
 #define is_lesser_equal <=
