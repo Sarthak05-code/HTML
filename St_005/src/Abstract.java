@@ -1,58 +1,45 @@
+import java.util.ArrayList;
+import java.util.Random;
+
 public class Abstract {
 
-    public static void main(final String[] args) {
-        StaticTester st = new StaticTester();
-        StaticTester.name();
-        st.caller();
+    public static void main(String[] args) {
+        Random rand = new Random();
+        ArrayList<Integer> array = new ArrayList<>();
+        Function function = new Function();
+        Abstraction abstraction = new Abstraction();
+        Inheritence inheritence = new Inheritence();
+
+        for (int i = 0; i < 3; ++i) {
+            array.add(rand.nextInt(0, 3) + 1);
+        }
+        System.out.println("The different number stored: " + array);
+
+        for (Integer arr : array) {
+            if (arr == 1) function.run();
+            else if (arr == 2) abstraction.run();
+            else inheritence.run();
+        }
     }
 }
 
-abstract class Main {
+class Function {
 
-    abstract void runner();
-}
-
-interface MainInterface {
-    public void runner2();
-}
-
-interface MainInterface2 {
-    public void runner3();
-}
-
-class Caller extends Main implements MainInterface, MainInterface2 {
-
-    @Override
-    public void runner() {
-        System.out.println("The caller of the class. ");
-    }
-
-    @Override
-    public void runner2() {
-        System.out.println("Call of the class , again. ");
-    }
-
-    @Override
-    public void runner3() {
-        System.out.println("This class will run last. ");
+    public void run() {
+        System.out.println("Function class was called");
     }
 }
 
-class StaticTester {
+class Abstraction {
 
-    Caller caller = new Caller();
-
-    // this method call got turned into a method
-    // and will call the method of another class as well.
-    
-    public void caller() {
-        caller.runner();
-        caller.runner2();
-        caller.runner3();
+    public void run() {
+        System.out.println("Abstraction class was called");
     }
+}
 
-    // static method , the method here will be called directly by the className.
-    public static void name() {
-        System.out.println("The static caller. this is the static method");
+class Inheritence {
+
+    public void run() {
+        System.out.println("Inheritance class was called");
     }
 }
