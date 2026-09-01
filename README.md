@@ -21,6 +21,9 @@ As you can see from the folders, there are different programs I have used, like:
 - `.js`
 - `.java`
 - `.c`
+- `.rs` > _In other folders i have used rust, zig and go, below , so i thought might as well mention them here._
+- `.zig`
+- `.go`
 
 > _Some were taught in school/college/university and some were more of a hobby project._
 
@@ -30,14 +33,17 @@ As you can see from the folders, there are different programs I have used, like:
 
 ---
 
-| **Name**      | **Learning Reason**                                            | **Status**                      |
-| ------------- | -------------------------------------------------------------- | ------------------------------- |
-| `Python`      | A hobby — The first language I learned                         | Stopped learning                |
-| `HTML`, `CSS` | School required frontend design, so we were taught these two   | Learning for Uni                |
-| `C++`         | My friend was learning it, so I was influenced and joined in   | Occasional timepass             |
-| `JavaScript`  | Currently being taught at university                           | Learning for Uni                |
-| `Java`        | My current favorite — learned Spring Boot and still going      | Daily learning with Spring Boot |
-| `C`           | My second favorite, and the most actively taught at university | Most active in C                |
+| **Name**      | **Learning Reason**                                                                                                                                       | **Status**                           |
+| ------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------ |
+| `Python`      | A hobby — The first language I learned                                                                                                                    | Stopped learning                     |
+| `HTML`, `CSS` | School required frontend design, so we were taught these two                                                                                              | Learning for Uni                     |
+| `C++`         | My friend was learning it, so I was influenced and joined in                                                                                              | Occasional timepass                  |
+| `JavaScript`  | Currently being taught at university                                                                                                                      | Learning for Uni                     |
+| `Java`        | My current favorite — learned Spring Boot and still going                                                                                                 | Daily learning with Spring Boot      |
+| `C`           | My second favorite, and the most actively taught at university                                                                                            | Most active in C                     |
+| `Rust`        | Pretty cool languages, many people were using it and i hoped on to the trend of using and reqriting my other coding project in rust                       | Currently not doing anything with it |
+| `Go`          | A very simple language that i learned in order to understand what so special about it, fun language where i used it to make a simple database recover cli | Not doing much with this lang        |
+| `Zig`         | My current favorite language for time pass, love how unique it feels for me, still waiting for the stable 1.0 release, learning this lang meanwhile       | Learning this lang almost daily      |
 
 ---
 
@@ -63,5 +69,6 @@ As you can see from the folders, there are different programs I have used, like:
 - `JavaScript` — University curriculum
 - `C` — Core subject at university
 - `HTML` / `CSS` — Frontend for university and personal projects
+- `Zig` — 0.16 version of zig as of now, actively learning it.
 
 ---
