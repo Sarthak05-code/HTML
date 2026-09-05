@@ -13,10 +13,10 @@ typedef uint16_t u16;
 typedef uint32_t u32;
 typedef uint64_t u64;
 
-typedef int8_t s8;
-typedef int16_t s16;
-typedef int32_t s32;
-typedef int64_t s64;
+typedef int8_t i8;
+typedef int16_t i16;
+typedef int32_t i32;
+typedef int64_t i64;
 
 typedef float f32;
 typedef double f64;
@@ -25,7 +25,7 @@ typedef bool b8;
 
 // ===== Utility Functions =====
 
-static inline b8 isEven(s32 n) { return (n % 2 == 0); }
+static inline b8 isEven(i32 n) { return (n % 2 == 0); }
 
 static inline u64 factorial(u32 n) {
   u64 result = 1;
