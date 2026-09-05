@@ -2,7 +2,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <synchapi.h>
-#include <time.h>
+#include <sys/time.h>
 
 const char *SENTENCES[] = {
     "The rain was pouring yesterday and the flood kept happening today",
@@ -33,24 +33,34 @@ const char *SENTENCES[] = {
 };
 
 int main(void) {
-  srand((unsigned int)time(NULL));
+  // srand((unsigned int)time(NULL));
 
-  i32 count = sizeof(SENTENCES) / sizeof(SENTENCES[0]);
-  const char *sentence = SENTENCES[rand() % count];
-  if (sentence[0] == '\0') {
-    printf("The sentence is empty!\n");
-    return EXIT_FAILURE;
+  // i32 count = sizeof(SENTENCES) / sizeof(SENTENCES[0]);
+  // const char *sentence = SENTENCES[rand() % count];
+  i64 WORDCOUNT = 0; // NOTE : helps count the words in the entire sentence.
+  for (i32 init = 0; init < sizeof(SENTENCES) / sizeof(SENTENCES[0]); init++) {
+    const char *sentence = SENTENCES[init];
+    if (sentence[0] == '\0') {
+      printf("The sentence is empty!\n");
+      return EXIT_FAILURE;
+    }
+    i64 i = 0; // NOTE : is the name as int64_t
+    printf("Sentence [%d]: ", init + 1);
+
+    do {
+      printf("%c", sentence[i]);
+      fflush(stdout);
+      Sleep(10);
+      if (sentence[i] != ' ' AND(i == 0 OR sentence[i - 1] ==
+                                 ' ')) { // NOTE : counting every words bar the
+                                         // whitespace or the \0.
+        WORDCOUNT++;
+      }
+      i++;
+
+    } while (sentence[i] != '\0');
+    printf("\n");
   }
-
-  i64 i = 0; // NOTE : is the name as int64_t
-
-  do {
-    printf("%c", sentence[i]);
-    fflush(stdout);
-    Sleep(300);
-    i++;
-  } while (sentence[i] != '\0');
-
-  printf("\n");
+  printf("The amount of words in this sentence is : %lld", WORDCOUNT);
   return EXIT_SUCCESS;
 }
