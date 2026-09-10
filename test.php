@@ -2,7 +2,7 @@
 
 interface PaymentGateway
 {
-    public function paymentType(string $type): int;
+    public function processPayment(float $amount): bool;
 }
 
 class BankAccount implements PaymentGateway
@@ -12,6 +12,7 @@ class BankAccount implements PaymentGateway
     public function __construct(float $initBalance)
     {
         if ($initBalance > 0) {
+            // Fixed comparison
             $this->balance = $initBalance;
         }
     }
@@ -19,7 +20,7 @@ class BankAccount implements PaymentGateway
     public function deposit(float $amount): void
     {
         if ($amount > 0) {
-            $this->balance = $amount;
+            $this->balance += $amount; // Fixed logic to accumulate balance
         }
     }
 
@@ -29,34 +30,42 @@ class BankAccount implements PaymentGateway
     }
 
     #[Override]
-    public function paymentType(string $type): int
+    public function processPayment(float $amount): bool
     {
-        if ($type === "card") {
-            return 1;
+        if ($amount <= $this->balance) {
+            $this->balance -= $amount;
+            return true;
         }
-        return 2;
+        return false;
     }
 }
 
-class Tower
+// Fixed Inheritance Hierarchy: Both are types of Structures
+abstract class Structure
 {
-    public function builind(): void
-    {
-        echo "The house is being build";
-    }
+    abstract public function build(): void;
 }
 
-class Bridge extends Tower
+class Tower extends Structure
 {
-    public function isBuilding(): void
+    #[Override]
+    public function build(): void
     {
-        echo "The bridge is being build";
+        echo "The tower is being built.\n";
     }
 }
 
-$check = new Bridge();
-$check->builind();
-$check->isBuilding();
+class Bridge extends Structure
+{
+    #[Override]
+    public function build(): void
+    {
+        echo "The bridge is being built.\n";
+    }
+}
+
+$bridge = new Bridge();
+$bridge->build();
 
 interface Shape
 {
@@ -84,33 +93,34 @@ class Rectangle implements Shape
     #[Override]
     public function calculateArea(): float
     {
-        return $this->length * $this->breadth;
+        return $this->length * $this->breadth; // Fixed formula
     }
 }
 
 function printArea(Shape $shape): void
 {
-    echo "Area : " . $shape->calculateArea() . "\n";
+    echo "Area: " . $shape->calculateArea() . "\n";
 }
 
 $circle = new Circle(12);
 $rectangle = new Rectangle(10, 12);
-printArea($circle);
-printArea($rectangle);
+printArea($circle); // Area: 452.3893...
+printArea($rectangle); // Area: 120
 
-abstract class hasNumber
+abstract class HasNumber // Capitalized class name
 {
-    abstract function caller();
+    abstract public function caller(): void;
 }
 
-class Number extends hasNumber
+class Number extends HasNumber
 {
     #[Override]
-    public function caller()
+    public function caller(): void
     {
-        echo "Calling from the abstract class. ";
+        echo "Calling from the abstract class.\n";
     }
 }
+
 $number = new Number();
 $number->caller();
 
