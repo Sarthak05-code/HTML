@@ -1,127 +1,53 @@
 <?php
 
-interface PaymentGateway
+trait Authenticated
 {
-    public function processPayment(float $amount): bool;
+    public function auth(string $name): bool
+    {
+        if (empty(trim($name))) {
+            return false;
+        }
+        return true;
+    }
 }
 
-class BankAccount implements PaymentGateway
+trait LoggedIn
 {
-    private float $balance = 0.0;
-
-    public function __construct(float $initBalance)
+    public function log_status(string $name): bool
     {
-        if ($initBalance > 0) {
-            // Fixed comparison
-            $this->balance = $initBalance;
+        if (empty(trim($name))) {
+            return false;
+        }
+        return true;
+    }
+}
+
+class UserSession
+{
+    use Authenticated, LoggedIn;
+    public string $name;
+    public function __construct(string $name)
+    {
+        $this->name = $name;
+    }
+
+    public function checkUserStatus(): void
+    {
+        $isAuth = $this->auth($this->name);
+        $isLogged = $this->log_status($this->name);
+
+        if ($isLogged && $isAuth) {
+            echo "User '{$this->name} is active and authenticated. \n'";
+        } else {
+            echo "User '{$this->name} is an invalid Entry'";
         }
     }
-
-    public function deposit(float $amount): void
-    {
-        if ($amount > 0) {
-            $this->balance += $amount; // Fixed logic to accumulate balance
-        }
-    }
-
-    public function getBalance(): float
-    {
-        return $this->balance;
-    }
-
-    #[Override]
-    public function processPayment(float $amount): bool
-    {
-        if ($amount <= $this->balance) {
-            $this->balance -= $amount;
-            return true;
-        }
-        return false;
-    }
 }
 
-// Fixed Inheritance Hierarchy: Both are types of Structures
-abstract class Structure
-{
-    abstract public function build(): void;
-}
+$validateUser = new UserSession("Sarthak");
+$validateUser->checkUserStatus();
 
-class Tower extends Structure
-{
-    #[Override]
-    public function build(): void
-    {
-        echo "The tower is being built.\n";
-    }
-}
-
-class Bridge extends Structure
-{
-    #[Override]
-    public function build(): void
-    {
-        echo "The bridge is being built.\n";
-    }
-}
-
-$bridge = new Bridge();
-$bridge->build();
-
-interface Shape
-{
-    public function calculateArea(): float;
-}
-
-class Circle implements Shape
-{
-    public function __construct(private float $radius) {}
-
-    #[Override]
-    public function calculateArea(): float
-    {
-        return pi() * $this->radius ** 2;
-    }
-}
-
-class Rectangle implements Shape
-{
-    public function __construct(
-        private float $length,
-        private float $breadth,
-    ) {}
-
-    #[Override]
-    public function calculateArea(): float
-    {
-        return $this->length * $this->breadth; // Fixed formula
-    }
-}
-
-function printArea(Shape $shape): void
-{
-    echo "Area: " . $shape->calculateArea() . "\n";
-}
-
-$circle = new Circle(12);
-$rectangle = new Rectangle(10, 12);
-printArea($circle); // Area: 452.3893...
-printArea($rectangle); // Area: 120
-
-abstract class HasNumber // Capitalized class name
-{
-    abstract public function caller(): void;
-}
-
-class Number extends HasNumber
-{
-    #[Override]
-    public function caller(): void
-    {
-        echo "Calling from the abstract class.\n";
-    }
-}
-
-$number = new Number();
-$number->caller();
+$invalidateUser = new UserSession(" ");
+$invalidateUser->checkUserStatus();
 
 ?>
