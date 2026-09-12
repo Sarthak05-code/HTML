@@ -72,6 +72,7 @@ typedef struct {
 #define is_greater_equal >=
 #define is_less <
 #define is_greater >
+#define mod %
 
 #define foreach(arr, i, n) for (u32 i = 0; i < (n); ++i)
 
