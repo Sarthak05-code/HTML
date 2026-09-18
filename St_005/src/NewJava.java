@@ -1,10 +1,26 @@
 //677375
+
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+
 public class NewJava {
 
     public static void main(String[] args) throws Exception {
-        Thread thread = Thread.startVirtualThread(() -> {
-            System.out.println("Running on : " + Thread.currentThread());
-        });
-        thread.join();
+        try {
+            BufferedReader reader = new BufferedReader(
+                new FileReader("FileTester.txt")
+            );
+
+            String line;
+
+            while ((line = reader.readLine()) != null) {
+                System.out.println(line);
+            }
+
+            reader.close();
+        } catch (IOException e) {
+            System.out.println("Could not find the file. ");
+        }
     }
 }
