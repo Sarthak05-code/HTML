@@ -1,24 +1,16 @@
 //677375
 
-import java.io.BufferedReader;
-import java.io.FileReader;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
 
 public class NewJava {
 
     public static void main(String[] args) throws Exception {
         try {
-            BufferedReader reader = new BufferedReader(
-                new FileReader("FileTester.txt")
-            );
-
-            String line;
-
-            while ((line = reader.readLine()) != null) {
-                System.out.println(line);
-            }
-
-            reader.close();
+            // String content = Files.readString(Path.of("FileTester.txt"));
+            // System.out.println(content);
+            Files.lines(Path.of("FileTester.txt")).forEach(System.out::println);
         } catch (IOException e) {
             System.out.println("Could not find the file. ");
         }
