@@ -1,18 +1,21 @@
-//677375
-
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-
 public class NewJava {
 
-    public static void main(String[] args) throws Exception {
-        try {
-            // String content = Files.readString(Path.of("FileTester.txt"));
-            // System.out.println(content);
-            Files.lines(Path.of("FileTester.txt")).forEach(System.out::println);
-        } catch (IOException e) {
-            System.out.println("Could not find the file. ");
-        }
+    public static void main(String[] args) {
+        LoadBalancer ld = new LoadBalancer();
+        ld.createTraffic(5000);
+        ld.displayKids();
+    }
+}
+
+class LoadBalancer {
+
+    private int childrens;
+
+    public void createTraffic(int childrens) {
+        this.childrens += childrens;
+    }
+
+    public void displayKids() {
+        System.out.println("The number of kids are : " + childrens);
     }
 }

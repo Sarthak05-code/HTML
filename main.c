@@ -1,6 +1,8 @@
 #include <stddef.h>
 #include <stdio.h>
 
+#define loop for(;;)
+
 int main(void) {
   FILE *fptr = fopen("FileTester.txt", "r");
   char c;
@@ -20,6 +22,9 @@ int main(void) {
   printf("The amount of vowel are : %zu and the consonent are : %zu and "
          "special character count are : %zu",
          vowel_count, conso_count, special_count);
+
+
+  
 
   return 0;
 }
