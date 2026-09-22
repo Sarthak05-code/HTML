@@ -1,7 +1,7 @@
 #include <stddef.h>
 #include <stdio.h>
 
-#define loop for(;;)
+#define loop for (;;)
 
 int main(void) {
   FILE *fptr = fopen("FileTester.txt", "r");
@@ -23,8 +23,9 @@ int main(void) {
          "special character count are : %zu",
          vowel_count, conso_count, special_count);
 
-
-  
+  loop {
+      
+  }
 
   return 0;
 }
