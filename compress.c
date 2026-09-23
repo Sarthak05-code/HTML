@@ -117,13 +117,18 @@ void generateCodes(Node *root, char *code, int depth) {
     return;
   }
 
-  code[depth] = '\0';
+  code[depth] = '0';
   generateCodes(root->left, code, depth + 1);
 
   code[depth] = '1';
   generateCodes(root->right, code, depth + 1);
 }
 
+/**
+ * Frees all nodes of a huffman tree using postorder traversal
+ *
+ * @param root Pointer to the root node of the tree.
+ */
 void freeTree(Node *root) {
   if (!root)
     return;
@@ -196,6 +201,17 @@ int readBit(BitReader *br) {
   br->bitCount--;
   return bit;
 }
+
+/**
+ * @brief Compresses a file using Huffman coding.
+ *
+ * Reads the input file, builds a Huffman tree, generates codes,
+ * and writes a compressed `.huff` file.
+ *
+ * @param inputPath Path of the source file.
+ * @param outputPath Path of the compressed output file.
+ * @return 0 on success, 1 on failure.
+ */
 
 int compressFile(const char *inputPath, const char *outputPath) {
   FILE *fptr = fopen(inputPath, "rb");
@@ -332,8 +348,20 @@ int decompressFile(const char *inputPath, const char *outputPath) {
 }
 
 int main(void) {
-  compressFile("FileTester.txt", "Compress.huff");
-  decompressFile("Compress.huff", "Decompressed.txt");
+
+  int compressStatus = compressFile("FileTester.txt", "Compress.huff");
+
+  if (compressStatus != 0) {
+    printf("Compression failed.\n");
+    return 1;
+  }
+
+  int decompressStatus = decompressFile("Compress.huff", "Decompressed.txt");
+
+  if (decompressStatus != 0) {
+    printf("Decompression failed.\n");
+    return 1;
+  }
 
   return 0;
 }
