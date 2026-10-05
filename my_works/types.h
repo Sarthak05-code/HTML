@@ -1,5 +1,4 @@
-#ifndef TYPES_H
-#define TYPES_H
+
 
 #pragma once
 
@@ -76,4 +75,12 @@ typedef struct {
 
 #define foreach(arr, i, n) for (u32 i = 0; i < (n); ++i)
 
-#endif
+/***
+ * # Simulating a print new line that is not present in vanilla c.
+ *
+ */
+static inline void println(const char *text) { printf("%s\n", text); }
+/***
+ *  # Don't even know what will happen when i call this.
+ */
+static inline void printt(const char *text) { printf("%s\t", text); }

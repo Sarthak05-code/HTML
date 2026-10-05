@@ -1,7 +1,25 @@
 #include <stddef.h>
 #include <stdio.h>
+#include <synchapi.h>
+#include <windows.h>
 
+/***
+ * Rust-like loop, this is an infinite loop.
+ */
 #define loop for (;;)
+typedef int Integer;
+
+typedef struct {
+  Integer value;
+  union {
+    double percentage;
+  };
+} UnionTester;
+
+/***
+ * print line with a new line character present.
+ */
+void println(const char *text) { printf("%s\n", text); }
 
 int main(void) {
   FILE *fptr = fopen("FileTester.txt", "r");
@@ -23,9 +41,8 @@ int main(void) {
          "special character count are : %zu",
          vowel_count, conso_count, special_count);
 
-  loop {
-      
-  }
+  println("\nHello,world");
+  printf("Supposed to see this in a new line.");
 
   return 0;
 }
