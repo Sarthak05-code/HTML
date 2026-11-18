@@ -1,35 +1,31 @@
+import java.util.ArrayList;
+
 public class Binary {
 
     public static void main(String[] args) {
-        Data d1 = new Data(101, "Sarthak", 100.00);
+        var storage = new Storage(101, "Powdered Sugar", 5, new ArrayList<>());
+        storage.items().add(10);
+        storage.items().add(20);
+        storage.items().add(30);
+        storage.items().add(40);
+        storage.items().add(50);
 
-        System.out.println(d1.ID() + " " + d1.name() + " " + d1.salary());
-
-        System.out.println(d1);
-        System.out.println(d1.hashCode());
-
-        d1.displayBonus();
-
-        var result = switch (Double.valueOf(d1.getBonus())) {
-            case Double b when b >= 50.0 -> "Excellent bonus";
-            case Double b when b >= 25.0 -> "Average bonus";
-            default -> "Low bonus";
-        };
-
-        System.out.println(result);
-    }
-}
-
-record Data(int ID, String name, double salary) {
-    public void displayBonus() {
-        if (salary >= 100.0) {
-            System.out.println("Bonus of 5%");
-        } else {
-            System.out.println("No bonus.");
+        System.out.printf(
+            "Item ID: %d , ItemName : %s , Item quantity : %d\n",
+            storage.ID(),
+            storage.ItemName(),
+            storage.quantity()
+        );
+        System.out.print("Items list : ");
+        for (var item : storage.items()) {
+            System.out.print(item + " ");
         }
     }
-
-    public double getBonus() {
-        return salary * 0.5;
-    }
 }
+
+record Storage(
+    int ID,
+    String ItemName,
+    int quantity,
+    ArrayList<Integer> items
+) {}
