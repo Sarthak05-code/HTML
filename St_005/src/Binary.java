@@ -1,66 +1,50 @@
+import java.util.List;
+
 public class Binary {
 
     public static void main(String[] args) {
-        var customer = new Customer("101", "Sarthak", "9851136656");
+        var student1 = new ClassSemester(
+            1,
+            "Sarthak",
+            List.of("Java", "Maths")
+        );
 
-        var order = new Order(customer, "101", ItemsStock.JUICE, 5);
+        var student2 = new ClassSemester(2, "Sagar", List.of("C", "Physics"));
 
-        var bill = new FinalBill(customer, order);
+        var classroom = new Classroom("CR-204", List.of(student1, student2));
 
-        bill.pricePerProduct();
+        classroom.displayStudents();
+
+        var student3 = new ClassSemester(2, "Sarthak", List.of("Html" , "Css"));
+        var student4 = new ClassSemester(2, "Sarthak", List.of("Html" , "Css"));
+        var student5 = new ClassSemester(2, "Sarthak", List.of("Html" , "Css"));
+
+        var classroom2 = new Classroom("CR-203", List.of(student1 , student2 , student3 , student4 , student5));
+        classroom2.displayStudents();
     }
 }
 
-// Product Enum
-enum ItemsStock {
-    APPLE,
-    ORANGE,
-    POTATO,
-    SPICES,
-    PEAS,
-    JUICE,
-    YOGURT,
-    CARBONATED_DRINK,
-    BEETROOT,
+record ClassSemester(
+    int semesterID,
+    String studentName,
+    List<String> subjects
+) {
+    public ClassSemester {
+        subjects = List.copyOf(subjects);
+    }
 }
 
-// Customer Info
-record Customer(
-    String customerID,
-    String customerName,
-    String customerNumber
-) {}
+record Classroom(String classID, List<ClassSemester> students) {
+    public Classroom {
+        students = List.copyOf(students);
+    }
 
-// Customer's Order Info
-record Order(
-    Customer customer,
-    String itemID,
-    ItemsStock itemName,
-    int quantity
-) {}
+    public void displayStudents() {
+        System.out.println("Class: " + classID);
 
-// Final Bill
-record FinalBill(Customer customer, Order order) {
-    public void pricePerProduct() {
-        // Unit prices are in NPR, per kg or litre depending on the product.
-        var price = switch (order.itemName()) {
-            case APPLE -> 120.0;
-            case JUICE -> 100.0;
-            case POTATO -> 105.0;
-            case SPICES -> 55.0;
-            case PEAS -> 35.0;
-            case YOGURT -> 85.0;
-            case CARBONATED_DRINK -> 105.0;
-            case ORANGE -> 98.0;
-            case BEETROOT -> 75.0;
-            default -> 100.0;
-        };
-
-        var total = price * order.quantity();
-
-        System.out.println("ItemName: " + order.itemName());
-        System.out.println("Price per item: " + price);
-        System.out.println("Quantity: " + order.quantity());
-        System.out.println("Total: " + total);
+        for (var student : students) {
+            System.out.println(student.studentName());
+            System.out.println(student.subjects());
+        }
     }
 }
