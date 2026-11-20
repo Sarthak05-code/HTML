@@ -1,50 +1,44 @@
-import java.util.List;
 
 public class Binary {
 
     public static void main(String[] args) {
-        var student1 = new ClassSemester(
-            1,
-            "Sarthak",
-            List.of("Java", "Maths")
-        );
+        var innerCircle = new Caller(). new InnerCaller();
+        innerCircle.helloInner();
 
-        var student2 = new ClassSemester(2, "Sagar", List.of("C", "Physics"));
+        var o = new OutmostCircle();
+        var om = new OutmostCircle().new MiddleCircle();
+        var omi = new OutmostCircle().new MiddleCircle().new InnerCircle();
 
-        var classroom = new Classroom("CR-204", List.of(student1, student2));
-
-        classroom.displayStudents();
-
-        var student3 = new ClassSemester(2, "Sarthak", List.of("Html" , "Css"));
-        var student4 = new ClassSemester(2, "Sarthak", List.of("Html" , "Css"));
-        var student5 = new ClassSemester(2, "Sarthak", List.of("Html" , "Css"));
-
-        var classroom2 = new Classroom("CR-203", List.of(student1 , student2 , student3 , student4 , student5));
-        classroom2.displayStudents();
+        o.outmostCircleprint();
+        om.middleCircleprint();
+        omi.innerCircleprint();
+        
     }
 }
 
-record ClassSemester(
-    int semesterID,
-    String studentName,
-    List<String> subjects
-) {
-    public ClassSemester {
-        subjects = List.copyOf(subjects);
+class Caller {
+    class InnerCaller {
+        public void helloInner() {
+            System.out.println("Hello from Inner.");
+        }
     }
 }
 
-record Classroom(String classID, List<ClassSemester> students) {
-    public Classroom {
-        students = List.copyOf(students);
+/// triple nested class
+
+class OutmostCircle {
+    public void outmostCircleprint() {
+        System.out.println("Hello from the outmost circle.");
     }
-
-    public void displayStudents() {
-        System.out.println("Class: " + classID);
-
-        for (var student : students) {
-            System.out.println(student.studentName());
-            System.out.println(student.subjects());
+    class MiddleCircle {
+        public void middleCircleprint() {
+            System.out.println("Hello from the middle circle.");
+        }
+        class InnerCircle {
+            public void innerCircleprint() {
+                System.out.println("Hello from the innermost circle.");
+            }
+            
         }
     }
 }
